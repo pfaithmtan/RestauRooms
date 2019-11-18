@@ -1,9 +1,11 @@
 {
-  "name": "MVP",
+  "name": "restaurooms",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "webpack -d -w",
+    "start-dev": "nodemon ./server/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
