@@ -1,7 +1,7 @@
 {
   "name": "restaurooms",
   "version": "1.0.0",
-  "description": "",
+  "description": "App that allows users to both view and rate the restrooms of restaurants. Built using MERN stack.",
   "main": "index.js",
   "scripts": {
     "build": "webpack -d -w",
