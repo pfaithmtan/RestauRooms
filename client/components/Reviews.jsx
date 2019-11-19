@@ -5,10 +5,14 @@ class Reviews extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = {};
+        this.state = {
+            review: ''
+        };
     }
 
     render() {
+        const { review } = this.state;
+
         return (
             <ReviewsDiv>
                 <h2 style={{ textAlign: "center" }}>Bathroom Reviews</h2>
@@ -21,7 +25,7 @@ class Reviews extends React.Component {
                 <form >
                     <label>
                         Add a review!
-                      <input name="review" value='some review' />
+                      <input name="review" value={review} />
                     </label>
                     <input type="submit" value="Add" />
                 </form>
