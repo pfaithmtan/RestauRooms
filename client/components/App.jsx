@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import Search from './Search.jsx';
 
 class App extends React.Component {
     constructor(props) {
@@ -39,8 +40,9 @@ class App extends React.Component {
             <div>
                 <div> <h1> {name} </h1> </div>
                 <div> <h3> {address} </h3> </div>
-                <div>Maybe search bar for certain reviews</div>
+                <Search />
                 <div>
+                    <h2>Bathroom Reviews</h2>
                     {
                         toiletReviews.map(review => <div>
                             <div>{review.review}</div>
