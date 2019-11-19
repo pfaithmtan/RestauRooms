@@ -1,7 +1,9 @@
 import React from 'react';
 import axios from 'axios';
+
 import Search from './Search.jsx';
-import { Main, Reviews, Header } from '../styling/style.jsx'
+import Reviews from './Reviews.jsx';
+import { Main, Header } from '../styling/style.jsx'
 
 class App extends React.Component {
     constructor(props) {
