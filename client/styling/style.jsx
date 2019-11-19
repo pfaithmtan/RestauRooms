@@ -8,7 +8,7 @@ export const Header = styled.div`
     display: flex;
     justify-content: space-around;
     background: #d4af37;
-    color: white
+    color: #000000
 `;
 
 export const ReviewsDiv = styled.div`
@@ -16,5 +16,5 @@ export const ReviewsDiv = styled.div`
     width: 60%;
     padding: 10px;
     color: white;
-    background: blue;
+    background: #696969;
 `;
