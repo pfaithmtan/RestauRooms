@@ -14,11 +14,16 @@ class Reviews extends React.Component {
     }
 
     handleChange(event) {
-        this.setState({ review: event.target.value });
+        this.setState({
+            review: event.target.value
+        });
     }
 
     handleSubmit(event) {
         alert(`A review for ${this.props.name}'s restroom was submitted`);
+        this.setState({
+            review: ''
+        })
         event.preventDefault();
       }
 
