@@ -25,7 +25,7 @@ class Reviews extends React.Component {
             review: ''
         })
         event.preventDefault();
-      }
+    }
 
     render() {
         const { review } = this.state;
@@ -44,11 +44,17 @@ class Reviews extends React.Component {
                         Add a review!
                       <input type="text" value={review} onChange={this.handleChange} />
                     </label>
+                    <p>Add a rating!</p>
+                        <input type="radio" name="rating" value="1" />1
+                        <input type="radio" name="rating" value="2" />2
+                        <input type="radio" name="rating" value="3" />3
+                        <input type="radio" name="rating" value="4" />4
+                        <input type="radio" name="rating" value="5" />5
                     <input type="submit" value="Add" />
                 </form>
             </ReviewsDiv>
-        );
-    }
-}
-
-export default Reviews;
+                            );
+                        }
+                    }
+                    
+                    export default Reviews;
