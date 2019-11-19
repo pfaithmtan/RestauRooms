@@ -1,5 +1,5 @@
 import React from 'react';
-import { ReviewsDiv } from '../styling/style.jsx'
+import { ReviewsDiv, OneReview } from '../styling/style.jsx'
 
 class Reviews extends React.Component {
     constructor(props) {
@@ -13,10 +13,10 @@ class Reviews extends React.Component {
             <ReviewsDiv>
                 <h2 style={{ textAlign: "center" }}>Bathroom Reviews</h2>
                 {
-                    this.props.toiletReviews.map(review => <div>
+                    this.props.toiletReviews.map(review => <OneReview>
                         <div>{review.review}</div>
                         <div>{review.rating}</div>
-                    </div>)
+                    </OneReview>)
                 }
                 <form >
                     <label>
