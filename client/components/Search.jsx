@@ -5,18 +5,26 @@ class Search extends React.Component {
         super(props);
 
         this.state = {
-            name: '',
-            address: '',
-            toiletReviews: []
+            value: ''
         };
+
+        this.handleChange = this.handleChange.bind(this);
+    }
+
+    handleChange(event) {
+        this.setState({
+            value: event.target.value
+        });
     }
 
     render() {
+        const { value } = this.state;
+
         return (
             <form >
                 <label>
                 Looking for a review?
-                <input name="review" placeholder="Search within reviews"/>
+                <input type="text" value={value} placeholder="Search within reviews" onChange={this.handleChange}/>
                 </label>
                 <input type="submit" value="Search" />
             </form>
