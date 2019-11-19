@@ -7,7 +7,7 @@ const controllers = require('./controllers/controllers.js');
 const app = express();
 const port = 8080;
 
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, '../public')));
 app.use(bodyParser.json());
 
 app.get('/api/restaurant/:id', db.getRestaurant);
