@@ -6,7 +6,7 @@ const Reviews = (props) => {
 
     return (
         <ReviewsDiv>
-            <h2>Bathroom Reviews</h2>
+            <h2 style={ {textAlign: "center"} }>Bathroom Reviews</h2>
             {
                 props.toiletReviews.map(review => <div>
                     <div>{review.review}</div>
