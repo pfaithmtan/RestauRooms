@@ -46,7 +46,7 @@ class App extends React.Component {
                     <div> <h3> {address} </h3> </div>
                 </Header>
                 <Search />
-                <Reviews toiletReviews={toiletReviews}/>
+                <Reviews name={name} toiletReviews={toiletReviews}/>
             </Main>
         );
     }
