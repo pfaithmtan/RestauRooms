@@ -8,14 +8,19 @@ db.once('open', () => {
     console.log('connected!')
 });
 
+const reviewSchema = new mongoose.Schema({
+    rating: Number,
+    review: String
+});
+
 const restaurantSchema = new mongoose.Schema({
     id: { type: Number, unique: true },
     name: String,
     address: String,
-    toiletRating: Number,
-    toiletReview: String
+    toiletReviews: [reviewSchema]
 });
 
 const Restaurant = mongoose.model('Restaurant', restaurantSchema);
+const Review = mongoose.model('Review', reviewSchema);
 
-module.exports.Restaurant = Restaurant;
+module.exports = { Restaurant, Review };
