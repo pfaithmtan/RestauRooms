@@ -44,15 +44,7 @@ class App extends React.Component {
                     <div> <h3> {address} </h3> </div>
                 </Header>
                 <Search />
-                <Reviews>
-                    <h2>Bathroom Reviews</h2>
-                    {
-                        toiletReviews.map(review => <div>
-                            <div>{review.review}</div>
-                            <div>{review.rating}</div>
-                        </div>)
-                    }
-                </Reviews>
+                <Reviews toiletReviews={toiletReviews}/>
             </Main>
         );
     }
