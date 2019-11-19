@@ -4,9 +4,9 @@ const Search = (props) => (
     <form >
         <label>
           Looking for a review?
-          <input name="review" value='heyhey'/>
+          <input name="review" placeholder="Search within reviews"/>
         </label>
-        <input type="submit" value="Search for a review!" />
+        <input type="submit" value="Search" />
       </form>
 );
 
