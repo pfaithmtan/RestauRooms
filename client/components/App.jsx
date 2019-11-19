@@ -12,7 +12,8 @@ class App extends React.Component {
         this.state = {
             name: '',
             address: '',
-            toiletReviews: []
+            toiletReviews: [],
+            filteredReviews: []
         };
     }
 
