@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import Search from './Search.jsx';
+import { Main, Reviews, Header } from '../styling/style.jsx'
 
 class App extends React.Component {
     constructor(props) {
@@ -37,11 +38,13 @@ class App extends React.Component {
         const { name, address, toiletReviews } = this.state;
 
         return (
-            <div>
-                <div> <h1> {name} </h1> </div>
-                <div> <h3> {address} </h3> </div>
+            <Main>
+                <Header>
+                    <div> <h1> {name} </h1> </div>
+                    <div> <h3> {address} </h3> </div>
+                </Header>
                 <Search />
-                <div>
+                <Reviews>
                     <h2>Bathroom Reviews</h2>
                     {
                         toiletReviews.map(review => <div>
@@ -49,8 +52,8 @@ class App extends React.Component {
                             <div>{review.rating}</div>
                         </div>)
                     }
-                </div>
-            </div>
+                </Reviews>
+            </Main>
         );
     }
 }
