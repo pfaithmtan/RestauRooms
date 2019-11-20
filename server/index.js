@@ -12,6 +12,7 @@ app.use('/restaurant/:id', express.static(path.join(__dirname, '../public')));
 app.use(bodyParser.json());
 
 app.get('/api/restaurant/:id', db.getRestaurant);
+app.post('/api/restaurant/:id', db.saveToiletReview);
 app.get('/api/restaurant/', controllers.getRestaurantsFromZomato);
 
 app.listen(port, () => console.log(`RestauRooms server listening on port ${port}!`));
