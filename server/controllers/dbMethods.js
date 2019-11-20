@@ -11,5 +11,18 @@ module.exports = {
             .catch((err) => {
                 res.status(500).send(err);
             });
+    },
+    saveToiletReview: (req, res) => {
+        const { id } = req.params;
+
+        const docToSave = {
+            rating: id.rating,
+            review: id.review
+        }
+
+        const review = new db.Review(docToSave);
+        restaurant.save((err) => {
+
+        });
     }
 }
