@@ -1,56 +1,42 @@
-// const request = require('request');
 const axios = require('axios');
 const config = require('../../config.js');
+const db = require('../../db/index.js');
 
-const getRestaurantsFromZomato = (req, res) => {
-    // let options = {
-    //     url: 'https://developers.zomato.com/api/v2.1/restaurant',
-    //     headers: {
-    //         'User-Agent': 'request',
-    //         'Authorization': `token ${config.TOKEN}`
-    //     }
-    // };
+const get20RestaurantsInSF = (req, res) => {
+  axios.get('https://maps.googleapis.com/maps/api/place/textsearch/json', {
+    params: {
+      query: 'San Francisco',
+      type: 'restaurant',
+      key: config.TOKEN,
+    }
+  })
+    .then((response) => {
+      const restaurantsArr = response.data.results;
 
-    console.log('HERES THE REQUEST:', req);
+      for (let i = 0; i < restaurantsArr.length; i++) {
+        const restaurant = new db.Restaurant(
+          {
+            place_id: restaurantsArr[i].place_id,
+            name: restaurantsArr[i].name,
+            address: restaurantsArr[i].formatted_address,
+            toiletReviews: [],
+          }
+        );
 
-    // request('http://www.google.com', (error, response, body) => {
-    //     console.log('error:', error); // Print the error if one occurred
-    //     console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
-    //     console.log('body:', body); // Print the HTML for the Google homepage.
-    // });
+        restaurant.save((err) => {
+          if (err) return handleError(err);
+          console.log(`Saved restaurant ${restaurantsArr[i].name} to db!`);
+        });
+      }
 
-    axios.get('https://developers.zomato.com/api/v2.1/restaurant', { headers: {'user-key': `${config.TOKEN}`} })
-        .then((data) => {
-            // handle success
-            console.log(data);
-            console.log("HELLO WENT THROUGH")
-            res.status(200).send(data);
-            
-        })
-        .catch((error) => {
-            // handle error
-            console.log(error);
-            console.log("DID NOT")
-            res.status(500).send(error);
-        })
-
-    // axios({
-    //     method: "GET",
-    //     url: "https://developers.zomato.com/api/v2.1/restaurant",
-    //     headers: {
-    //         "user-key": `${config.TOKEN}`,
-    //         "content-type": "application/json"
-    //     }
-    // })
-    //     .then((response) => {
-    //         console.log(response.data.restaurants[0].restaurant.name);
-    //         res.status(200).send(response.data[0]);
-    //     })
-    //     .catch((error) => {
-    //         console.log(error);
-    //         res.status(500).send(error);
-    //     });
+      res.status(200).send(`Successfully saved ${restaurantsArr.length} restaurants to DB!`);
+    })
+    .catch((error) => {
+      console.log(error);
+      console.log("DID NOT")
+      res.status(500).send(error);
+    })
 
 }
 
-module.exports.getRestaurantsFromZomato = getRestaurantsFromZomato;
+module.exports.get20RestaurantsInSF = get20RestaurantsInSF;
