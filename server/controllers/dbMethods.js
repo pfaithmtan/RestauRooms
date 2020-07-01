@@ -64,7 +64,7 @@ module.exports = {
 
     db.Restaurant.findOneAndUpdate({ place_id }, { $push: { toiletReviews: docToSave } })
       .then((data) => {
-        res.status(200).send(`FOUND ${place_id} AND UPDATED`);
+        res.status(200).send(`FOUND ${place_id} AND saved review!`);
       })
       .catch((err) => {
         res.status(500).send(err);
