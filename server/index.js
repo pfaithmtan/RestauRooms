@@ -11,7 +11,7 @@ app.use('/restaurant/:id', express.static(path.join(__dirname, '../public')));
 app.use(bodyParser.json());
 
 app.get('/api/restaurant/:place_id', db.getRestaurantFromDb);
-app.post('/api/restaurant/:id', db.saveToiletReview);
+app.put('/api/restaurant/:place_id/review', db.saveToiletReview);
 app.post('/api/restaurant', db.saveRestaurantToDb);
 
 app.listen(port, () => console.log(`RestauRooms server listening on port ${port}!`));
