@@ -1,4 +1,5 @@
 const axios = require('axios');
+const faker = require('faker');
 const config = require('../../config.js');
 const db = require('../../db/index.js');
 
@@ -39,4 +40,24 @@ const get20RestaurantsInSF = (req, res) => {
 
 }
 
-module.exports.get20RestaurantsInSF = get20RestaurantsInSF;
+const create100ReviewsForOneRestaurant = (req, res) => {
+  for (let i = 0; i < 100; i++) {
+    const review = {
+      rating: Math.floor(Math.random() * (6 - 1) + 1),
+      review: faker.lorem.sentences,
+    }
+    
+    db.Restaurant.findOneAndUpdate({ place_id }, { $push: { toiletReviews: review } })
+      .then((data) => {
+        res.status(200).send(`FOUND ${place_id} AND UPDATED`);
+      })
+      .catch((err) => {
+        res.status(500).send(err);
+      });
+  }
+}
+
+module.exports = {
+  get20RestaurantsInSF,
+  create100ReviewsForOneRestaurant,
+}
