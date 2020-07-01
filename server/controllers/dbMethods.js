@@ -54,16 +54,20 @@ module.exports = {
   },
 
   saveToiletReview: (req, res) => {
-    const { id } = req.params;
+    const { rating, review } = req.body;
+    const { place_id } = req.params;
 
     const docToSave = {
-      rating: id.rating,
-      review: id.review
+      rating,
+      review,
     }
 
-    const review = new db.Review(docToSave);
-    restaurant.save((err) => {
-
-    });
+    db.Restaurant.findOneAndUpdate({ place_id }, { $push: { toiletReviews: docToSave } })
+      .then((data) => {
+        res.status(200).send(`FOUND ${place_id} AND UPDATED`);
+      })
+      .catch((err) => {
+        res.status(500).send(err);
+      });
   }
 }
