@@ -69,5 +69,17 @@ module.exports = {
       .catch((err) => {
         res.status(500).send(err);
       });
+  },
+
+  deleteAllReviewsFromRestaurant: (req, res) => {
+    const { place_id } = req.params;
+
+    db.Restaurant.findOneAndUpdate({ place_id }, { $set: { toiletReviews: [] } })
+      .then((data) => {
+        res.status(200).send(`Deleted all reviews from ${place_id}`);
+      })
+      .catch((err) => {
+        res.status(500).send(err);
+      });
   }
 }
