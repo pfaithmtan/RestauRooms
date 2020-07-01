@@ -44,12 +44,12 @@ const create100ReviewsForOneRestaurant = (req, res) => {
   for (let i = 0; i < 100; i++) {
     const review = {
       rating: Math.floor(Math.random() * (6 - 1) + 1),
-      review: faker.lorem.sentences,
+      review: faker.lorem.sentences(),
     }
     
-    db.Restaurant.findOneAndUpdate({ place_id }, { $push: { toiletReviews: review } })
+    db.Restaurant.findOneAndUpdate({ place_id: 'ChIJ6Z5t1n6AhYARaY_WxdP44r0' }, { $push: { toiletReviews: review } })
       .then((data) => {
-        res.status(200).send(`FOUND ${place_id} AND UPDATED`);
+        res.status(200).send(`FOUND ${place_id} and pushed a new review!`);
       })
       .catch((err) => {
         res.status(500).send(err);
