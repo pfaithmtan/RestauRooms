@@ -4,7 +4,6 @@ export const Main = styled.div`
   background: #d6fff6;
   display: flex;
   flex-direction: column;
-  height: 665px;
   font-family: Arial, Helvetica, sans-serif;
 `;
 
@@ -25,16 +24,30 @@ export const SearchAndReviewsDiv = styled.div`
 `;
 
 export const SearchSide = styled.div`
+  display: flex;
+  align-items: center;
   background: #5ffcd7;
   width: 100%;
   margin: 10px;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   padding: 10px;
+`;
+
+export const SearchButton = styled.button`
+  background: grey;
+  color: white;
 `;
 
 export const ReviewsSide = styled.div`
   background: #22d8ae;
   width: 100%;
   margin: 10px;
+`;
+
+export const Review = styled.div`
+  background: #def2ed;
+  padding: 5px;
+  margin: 1px;
 `;
