@@ -35,6 +35,17 @@ export const SearchSide = styled.div`
   padding: 10px;
 `;
 
+export const SearchBar = styled.input`
+  background-color: #fff;
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300;
+  margin: 10px 0 20px 0;
+  padding: 0 11px 0 13px;
+  text-overflow: ellipsis;
+  width: 500px;
+`;
+
 export const SearchButton = styled.button`
   background: grey;
   color: white;

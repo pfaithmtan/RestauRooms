@@ -3,6 +3,7 @@ import Script from 'react-load-script';
 
 import {
   SearchButton,
+  SearchBar,
 } from '../styling/style'
 import config from '../../config';
 
@@ -78,19 +79,10 @@ const Search = ({ updateQuery }) => {
       />
 
       <div>
-        <input
+
+        <SearchBar
           id="pac-input"
           type="text"
-          style={{ 
-            backgroundColor: '#fff',
-            fontFamily: 'Roboto',
-            fontSize: '15px',
-            fontWeight: 300,
-            marginLeft: '12px',
-            padding: '0 11px 0 13px',
-            textOverflow: 'ellipsis',
-            width: '500px',
-          }}
           placeholder="Search for a restaurant"
         />
         <div id="map" style={{ height: '500px' }}></div>
