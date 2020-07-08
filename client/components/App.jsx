@@ -30,7 +30,7 @@ const App = () => {
   }
 
   useEffect(() => {
-    // getReviews('ChIJ6Z5t1n6AhYARaY_WxdP44r0');
+    getReviews('ChIJ6Z5t1n6AhYARaY_WxdP44r0');
   }, [])
 
   return (
@@ -53,8 +53,26 @@ const App = () => {
             {
               reviews.map((review) => {
               let reviewDiv = <div>{review.review}</div>
-                if (review.review.length > 160) {
-                  reviewDiv = <div>{review.review.slice(0,160)}...</div>
+                if (review.review.length > 180) {
+                  reviewDiv = <div>
+                    <span>
+                      {review.review.slice(0,180)}...
+                    </span>
+                    <button
+                      style={{
+                        fontSize: '100%',
+                        fontFamily: 'inherit',
+                        border: 0,
+                        padding: 0,
+                        backgroundColor: 'transparent',
+                        fontWeight: 'bold',
+                        textDecoration: 'underline',
+                        cursor: 'pointer',
+                      }}
+                    >
+                      Read more
+                    </button>
+                  </div>
                 }
 
                 return (
