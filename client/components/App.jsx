@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 
 import {
@@ -7,17 +7,19 @@ import {
   SearchAndReviewsDiv,
   SearchSide,
   ReviewsSide,
-} from '../styling/style'
-import Search from './Search'
-import Reviews from './Reviews'
+} from '../styling/style';
+import Search from './Search';
+import Reviews from './Reviews';
 
 const App = () => {
   const [reviews, setReviews] = useState([]);
+  const [restaurantName, setRestaurantName] = useState('')
 
   const getReviews = (placeId) => {
     axios.get(`/api/restaurant/${placeId}`)
       .then((data) => {
         setReviews(data.data[0].toiletReviews);
+        setRestaurantName(data.data[0].name);
       })
       .catch((error) => {
         console.log(error);
@@ -27,10 +29,6 @@ const App = () => {
   const updateQuery = (query) => {
     getReviews(query);
   }
-
-  useEffect(() => {
-    getReviews('ChIJ6Z5t1n6AhYARaY_WxdP44r0');
-  }, [])
 
   return (
     <Main>
@@ -45,7 +43,7 @@ const App = () => {
           <Search updateQuery={updateQuery} />
         </SearchSide>
         <ReviewsSide>
-          <Reviews reviews={reviews} />
+          <Reviews reviews={reviews} restaurantName={restaurantName} />
         </ReviewsSide>
       </SearchAndReviewsDiv>
     </Main>
