@@ -71,3 +71,15 @@ export const Review = styled.div`
   padding: 5px;
   margin: 10px;
 `;
+
+export const ReadMoreButton = styled.button`
+  font-size: 100%;
+  font-family: inherit;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  outline: none;
+  font-weight: bold;
+  text-decoration: underline;
+  cursor: pointer;
+`;

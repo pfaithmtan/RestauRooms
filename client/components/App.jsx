@@ -9,6 +9,7 @@ import {
   ReviewsSide,
   ReviewsDiv,
   Review,
+  ReadMoreButton,
 } from '../styling/style'
 import Search from './Search'
 
@@ -58,20 +59,9 @@ const App = () => {
                     <span>
                       {review.review.slice(0,180)}...
                     </span>
-                    <button
-                      style={{
-                        fontSize: '100%',
-                        fontFamily: 'inherit',
-                        border: 0,
-                        padding: 0,
-                        backgroundColor: 'transparent',
-                        fontWeight: 'bold',
-                        textDecoration: 'underline',
-                        cursor: 'pointer',
-                      }}
-                    >
+                    <ReadMoreButton>
                       Read more
-                    </button>
+                    </ReadMoreButton>
                   </div>
                 }
 
