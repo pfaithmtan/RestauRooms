@@ -52,13 +52,22 @@ export const SearchButton = styled.button`
 `;
 
 export const ReviewsSide = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
   background: #22d8ae;
   width: 100%;
   margin: 10px;
+  padding: 20px 10px 10px 10px;
+`;
+
+export const ReviewsDiv = styled.div`
+  background: white;
+  margin: 20px 0 0 0;
 `;
 
 export const Review = styled.div`
   background: #def2ed;
   padding: 5px;
-  margin: 1px;
+  margin: 10px;
 `;
