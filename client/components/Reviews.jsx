@@ -5,7 +5,8 @@ import {
   ReviewsDiv,
   ReadMoreButton,
   Review,
-} from '../styling/style.jsx'
+} from '../styling/style.jsx';
+import ReviewEntry from './ReviewEntry';
 
 const Reviews = ({ reviews }) => {
 
@@ -22,6 +23,7 @@ const Reviews = ({ reviews }) => {
         {
           reviews.map((review) => {
             let reviewDiv = <div>{review.review}</div>
+
             if (review.review.length > 180) {
               reviewDiv = <div>
                 <span>
@@ -34,21 +36,7 @@ const Reviews = ({ reviews }) => {
             }
 
             return (
-              <Review>
-                {
-                  reviewDiv
-                }
-                <br />
-                {'Overall rating:  '}
-                {[...Array(review.rating)].map(() =>
-                  <img
-                    src="https://cdn.iconscout.com/icon/premium/png-256-thumb/cleantoilet-4-1154430.png"
-                    alt="clean toilet rating"
-                    width="20"
-                    height="20"
-                  />
-                )}
-              </Review>
+              <ReviewEntry reviewDiv={reviewDiv} reviewRating={review.rating} />
             )
           })
         }
