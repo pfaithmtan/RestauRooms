@@ -2,9 +2,28 @@ import React from 'react';
 
 import {
   Review,
+  ReadMoreButton,
 } from '../styling/style.jsx';
 
-const ReviewEntry = ({ reviewDiv, reviewRating }) => {
+const ReviewEntry = ({ review, reviewRating }) => {
+
+  const handleReadMore = (event) => {
+    console.log('SHOW MORE!')
+  }
+
+  let reviewDiv = <div>{review}</div>
+
+  if (review.length > 180) {
+    reviewDiv = <div>
+      <span>
+        {review.slice(0, 180)}...
+      </span>
+      <ReadMoreButton onClick={handleReadMore}>
+        Read more
+      </ReadMoreButton>
+    </div>
+  }
+
   return (
     <Review>
       {
