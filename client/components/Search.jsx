@@ -2,7 +2,6 @@ import React from 'react';
 import Script from 'react-load-script';
 
 import {
-  SearchButton,
   SearchBar,
 } from '../styling/style'
 import config from '../../config';

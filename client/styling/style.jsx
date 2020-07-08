@@ -46,11 +46,6 @@ export const SearchBar = styled.input`
   width: 500px;
 `;
 
-export const SearchButton = styled.button`
-  background: grey;
-  color: white;
-`;
-
 export const ReviewsSide = styled.div`
   display: flex;
   align-items: center;
