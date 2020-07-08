@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import {
   Review,
@@ -6,9 +6,10 @@ import {
 } from '../styling/style.jsx';
 
 const ReviewEntry = ({ review, reviewRating }) => {
+  const [readMore, setReadMore] = useState(false);
 
-  const handleReadMore = (event) => {
-    console.log('SHOW MORE!')
+  const handleReadMore = () => {
+    setReadMore(true);
   }
 
   let reviewDiv = <div>{review}</div>
@@ -18,10 +19,19 @@ const ReviewEntry = ({ review, reviewRating }) => {
       <span>
         {review.slice(0, 180)}...
       </span>
-      <ReadMoreButton onClick={handleReadMore}>
+      <ReadMoreButton
+        style={{
+          display: (readMore ? 'none' : 'visible')
+        }}
+        onClick={handleReadMore}
+      >
         Read more
       </ReadMoreButton>
     </div>
+  }
+
+  if (readMore) {
+    reviewDiv = <div>{review}</div>
   }
 
   return (
