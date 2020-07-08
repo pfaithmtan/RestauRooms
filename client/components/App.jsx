@@ -7,6 +7,7 @@ import {
   SearchAndReviewsDiv,
   SearchSide,
   ReviewsSide,
+  ReviewsDiv,
   Review,
 } from '../styling/style'
 import Search from './Search'
@@ -28,6 +29,10 @@ const App = () => {
     getReviews(query);
   }
 
+  useEffect(() => {
+    // getReviews('ChIJ6Z5t1n6AhYARaY_WxdP44r0');
+  }, [])
+
   return (
     <Main>
       <Header>
@@ -35,23 +40,43 @@ const App = () => {
       </Header>
       <SearchAndReviewsDiv>
         <SearchSide>
-          Search for restaurant
+          <div style={{ color: 'black', fontWeight: 'bold', fontSize: '20px' }}>
+            Search for restaurant
+          </div>
           <Search updateQuery={updateQuery} />
         </SearchSide>
         <ReviewsSide>
-          Reviews
-          {
-            reviews.map((review) => (
-              <Review>
-                {
-                  review.review
+          <div style={{ color: '#163f34', fontWeight: 'bold', fontSize: '30px' }}>
+            Reviews
+          </div>
+          <ReviewsDiv>
+            {
+              reviews.map((review) => {
+              let reviewDiv = <div>{review.review}</div>
+                if (review.review.length > 160) {
+                  reviewDiv = <div>{review.review.slice(0,160)}...</div>
                 }
-                {
-                  review.rating
-                }
-              </Review>
-            ))
-          }
+
+                return (
+                  <Review>
+                    {
+                      reviewDiv
+                    }
+                    <br />
+                    {'Overall rating:  '}
+                    {[...Array(review.rating)].map(() =>
+                      <img
+                        src="https://cdn.iconscout.com/icon/premium/png-256-thumb/cleantoilet-4-1154430.png"
+                        alt="clean toilet rating"
+                        width="20"
+                        height="20"
+                      />
+                    )}
+                  </Review>
+                )
+              })
+            }
+          </ReviewsDiv>
         </ReviewsSide>
       </SearchAndReviewsDiv>
     </Main>
