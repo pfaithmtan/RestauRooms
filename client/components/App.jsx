@@ -7,11 +7,9 @@ import {
   SearchAndReviewsDiv,
   SearchSide,
   ReviewsSide,
-  ReviewsDiv,
-  Review,
-  ReadMoreButton,
 } from '../styling/style'
 import Search from './Search'
+import Reviews from './Reviews'
 
 const App = () => {
   const [reviews, setReviews] = useState([]);
@@ -47,44 +45,7 @@ const App = () => {
           <Search updateQuery={updateQuery} />
         </SearchSide>
         <ReviewsSide>
-          <div style={{ color: '#163f34', fontWeight: 'bold', fontSize: '30px' }}>
-            Reviews
-          </div>
-          <ReviewsDiv>
-            {
-              reviews.map((review) => {
-              let reviewDiv = <div>{review.review}</div>
-                if (review.review.length > 180) {
-                  reviewDiv = <div>
-                    <span>
-                      {review.review.slice(0,180)}...
-                    </span>
-                    <ReadMoreButton>
-                      Read more
-                    </ReadMoreButton>
-                  </div>
-                }
-
-                return (
-                  <Review>
-                    {
-                      reviewDiv
-                    }
-                    <br />
-                    {'Overall rating:  '}
-                    {[...Array(review.rating)].map(() =>
-                      <img
-                        src="https://cdn.iconscout.com/icon/premium/png-256-thumb/cleantoilet-4-1154430.png"
-                        alt="clean toilet rating"
-                        width="20"
-                        height="20"
-                      />
-                    )}
-                  </Review>
-                )
-              })
-            }
-          </ReviewsDiv>
+          <Reviews reviews={reviews} />
         </ReviewsSide>
       </SearchAndReviewsDiv>
     </Main>

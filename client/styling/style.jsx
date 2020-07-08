@@ -61,6 +61,12 @@ export const ReviewsSide = styled.div`
   padding: 20px 10px 10px 10px;
 `;
 
+export const ReviewsComponent = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+`;
+
 export const ReviewsDiv = styled.div`
   background: white;
   margin: 20px 0 0 0;
