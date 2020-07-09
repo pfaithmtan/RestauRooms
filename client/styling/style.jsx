@@ -105,7 +105,7 @@ export const Numbers = styled.div`
   color: white;
 
   &:hover {
-    background-color: #60FCD7;
+    background-color: #A9DBFF;
     color: black;
   }
 `;
