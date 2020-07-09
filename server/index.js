@@ -10,6 +10,7 @@ app.use('/', express.static(path.join(__dirname, '../public')));
 app.use('/restaurant/:id', express.static(path.join(__dirname, '../public')));
 app.use(bodyParser.json());
 
+app.get('/api/restaurants', db.getInitialRestaurantsFromDb);
 app.get('/api/restaurant/:place_id', db.getRestaurantFromDb);
 app.post('/api/restaurant', db.saveRestaurantToDb);
 app.post('/api/restaurant/:place_id/review', db.saveToiletReview);

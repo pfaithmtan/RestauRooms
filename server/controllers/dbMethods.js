@@ -3,6 +3,18 @@ const axios = require('axios');
 const config = require('../../config.js');
 
 module.exports = {
+  getInitialRestaurantsFromDb: (req, res) => {
+    db.Restaurant.find()
+      .sort({ name: 1 })
+      .limit(10)
+      .then((data) => {
+        res.status(200).send(data);
+      })
+      .catch((err) => {
+        res.status(500).send(err);
+      });
+  },
+
   saveRestaurantToDb: (req, res) => {
     const { query } = req.query;
 
