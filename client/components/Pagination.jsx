@@ -1,30 +1,27 @@
 import React from 'react';
 
 import {
+  PaginationDiv,
+  Numbers,
 } from '../styling/style.jsx';
 
-const Pagination = ({ reviewsPerPage, totalReviews }) => {
+const Pagination = ({ reviewsPerPage, totalReviews, paginate }) => {
   const pageNumbers = [];
 
-  for (let i = 0; i <= Math.ceil(totalReviews / reviewsPerPage); i++) {
+  for (let i = 1; i <= Math.ceil(totalReviews / reviewsPerPage); i++) {
     pageNumbers.push(i);
   }
 
   return  (
-    <nav
-      style={{
-        display: 'flex',
-        flexDirection: 'row',
-      }}
-    >
+    <PaginationDiv>
       {
         pageNumbers.map((number) => (
-          <div>
-            <a href='!#'>{number}</a>
-          </div>
+          <Numbers>
+            <a onClick={() => paginate(number)}>{number}</a>
+          </Numbers>
         ))
       }
-    </nav>
+    </PaginationDiv>
   );
 }
 
