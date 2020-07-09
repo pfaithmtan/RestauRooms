@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 import {
@@ -16,7 +16,7 @@ const App = () => {
   const [reviews, setReviews] = useState([]);
   const [restaurantName, setRestaurantName] = useState('')
   const [currentPage, setCurrentPage] = useState(1);
-  const [reviewsPerPage, setReviewsPerPage] = useState(10);
+  const [reviewsPerPage] = useState(10);
 
   const getReviews = (placeId) => {
     axios.get(`/api/restaurant/${placeId}`)
@@ -33,9 +33,15 @@ const App = () => {
     getReviews(query);
   }
 
+  useEffect(() => {
+    getReviews('ChIJ6Z5t1n6AhYARaY_WxdP44r0');
+  }, [])
+
   const indexOfLastPost = currentPage * reviewsPerPage;
   const indexOfFirstPost = indexOfLastPost - reviewsPerPage;
   const currentReviews = reviews.slice(indexOfFirstPost, indexOfLastPost);
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber)
 
   return (
     <Main>
@@ -52,7 +58,12 @@ const App = () => {
         <ReviewsSide>
           <Reviews reviews={currentReviews} restaurantName={restaurantName} />
           {
-            reviews.length === 0 ? <div /> : <Pagination reviewsPerPage={reviewsPerPage} totalReviews={reviews.length} />
+            reviews.length === 0 
+            ? <div /> : <Pagination 
+              reviewsPerPage={reviewsPerPage} 
+              totalReviews={reviews.length} 
+              paginate={paginate} 
+              currentPage={currentPage} />
           }
         </ReviewsSide>
       </SearchAndReviewsDiv>
