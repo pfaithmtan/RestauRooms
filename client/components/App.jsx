@@ -33,10 +33,6 @@ const App = () => {
     getReviews(query);
   }
 
-  useEffect(() => {
-    getReviews('ChIJ6Z5t1n6AhYARaY_WxdP44r0');
-  }, [])
-
   const indexOfLastPost = currentPage * reviewsPerPage;
   const indexOfFirstPost = indexOfLastPost - reviewsPerPage;
   const currentReviews = reviews.slice(indexOfFirstPost, indexOfLastPost);
