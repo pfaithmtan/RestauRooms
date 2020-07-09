@@ -10,6 +10,7 @@ import {
 } from '../styling/style';
 import Search from './Search';
 import Reviews from './Reviews';
+import Pagination from './Pagination';
 
 const App = () => {
   const [reviews, setReviews] = useState([]);
@@ -50,6 +51,9 @@ const App = () => {
         </SearchSide>
         <ReviewsSide>
           <Reviews reviews={currentReviews} restaurantName={restaurantName} />
+          {
+            reviews.length === 0 ? <div /> : <Pagination reviewsPerPage={reviewsPerPage} totalReviews={reviews.length} />
+          }
         </ReviewsSide>
       </SearchAndReviewsDiv>
     </Main>
