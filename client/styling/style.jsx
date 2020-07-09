@@ -88,24 +88,5 @@ export const ReadMoreButton = styled.button`
 export const PaginationDiv = styled.nav`
   display: flex;
   flex-direction: row;
-  // background-color: red;
   margin: 15px 0 10px 0;
-  // padding: 5px;
-`;
-
-export const Numbers = styled.div`
-  height: 25px;
-  width: 25px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid black;
-  cursor: pointer;
-  background-color: #375E54;
-  color: white;
-
-  &:hover {
-    background-color: #A9DBFF;
-    color: black;
-  }
 `;
