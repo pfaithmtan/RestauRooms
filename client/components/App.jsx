@@ -14,6 +14,8 @@ import Reviews from './Reviews';
 const App = () => {
   const [reviews, setReviews] = useState([]);
   const [restaurantName, setRestaurantName] = useState('')
+  const [currentPage, setCurrentPage] = useState(1);
+  const [reviewsPerPage, setReviewsPerPage] = useState(10);
 
   const getReviews = (placeId) => {
     axios.get(`/api/restaurant/${placeId}`)
@@ -30,6 +32,10 @@ const App = () => {
     getReviews(query);
   }
 
+  const indexOfLastPost = currentPage * reviewsPerPage;
+  const indexOfFirstPost = indexOfLastPost - reviewsPerPage;
+  const currentReviews = reviews.slice(indexOfFirstPost, indexOfLastPost);
+
   return (
     <Main>
       <Header>
@@ -43,7 +49,7 @@ const App = () => {
           <Search updateQuery={updateQuery} />
         </SearchSide>
         <ReviewsSide>
-          <Reviews reviews={reviews} restaurantName={restaurantName} />
+          <Reviews reviews={currentReviews} restaurantName={restaurantName} />
         </ReviewsSide>
       </SearchAndReviewsDiv>
     </Main>
