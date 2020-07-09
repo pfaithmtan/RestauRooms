@@ -14,7 +14,8 @@ import Pagination from './Pagination';
 
 const App = () => {
   const [reviews, setReviews] = useState([]);
-  const [restaurantName, setRestaurantName] = useState('')
+  const [restaurantName, setRestaurantName] = useState('');
+  const [initialRestaurants, setInitialRestaurants] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [reviewsPerPage] = useState(10);
 
@@ -32,6 +33,23 @@ const App = () => {
   const updateQuery = (query) => {
     getReviews(query);
   }
+
+  const getInitialRestaurants = () => {
+    axios.get('/api/restaurants')
+      .then((data) => {
+        const restaurants = data.data;
+        const restaurantNames = restaurants.map((restaurant) => (restaurant.name));
+
+        setInitialRestaurants(restaurantNames)
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+  }
+
+  useEffect(() => {
+    getInitialRestaurants();
+  }, []);
 
   const indexOfLastPost = currentPage * reviewsPerPage;
   const indexOfFirstPost = indexOfLastPost - reviewsPerPage;
