@@ -18,8 +18,7 @@ const ReviewForm = ({ restaurantPlaceId }) => {
   }
 
   const handleRating = (event) => {
-    console.log('rating:', event.target.value)
-    setRating(event.target.value)
+    setRating(Number(event.target.value))
   }
 
   const handleSubmit = (event) => {
@@ -43,7 +42,7 @@ const ReviewForm = ({ restaurantPlaceId }) => {
   return (
     <ReviewFormDiv>
       <form onSubmit={(event) => handleSubmit(event)} >
-        <label for="fname">Submit a review</label>
+        <label for="submit-review" style={{ fontSize: 20 }}>Submit a review</label><br/>
         <ReviewTextBox type="text" id="review" onChange={handleChange} />
         <ReviewButtons>
           Give an overall rating:
@@ -54,15 +53,15 @@ const ReviewForm = ({ restaurantPlaceId }) => {
             height="30"
             style={{ margin: '0 3px 0 5px' }}
           />
-          <input type="radio" id="1" value="1" checked={rating === "1"} onChange={handleRating} />
+          <input type="radio" id="1" value="1" checked={rating === 1} onChange={handleRating} />
           <label for="1">1</label>
-          <input type="radio" id="2" value="2" checked={rating === "2"} onChange={handleRating} />
+          <input type="radio" id="2" value="2" checked={rating === 2} onChange={handleRating} />
           <label for="2">2</label>
-          <input type="radio" id="3" value="3" checked={rating === "3"} onChange={handleRating} />
+          <input type="radio" id="3" value="3" checked={rating === 3} onChange={handleRating} />
           <label for="3">3</label>
-          <input type="radio" id="4" value="4" checked={rating === "4"} onChange={handleRating} />
+          <input type="radio" id="4" value="4" checked={rating === 4} onChange={handleRating} />
           <label for="4">4</label>
-          <input type="radio" id="5" value="5" checked={rating === "5"} onChange={handleRating} />
+          <input type="radio" id="5" value="5" checked={rating === 5} onChange={handleRating} />
           <label for="5">5</label>
           <ReviewSubmit type="submit" value="Submit" />
         </ReviewButtons>
