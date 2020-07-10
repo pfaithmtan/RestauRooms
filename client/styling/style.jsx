@@ -78,7 +78,7 @@ export const ReviewsDiv = styled.div`
 export const ReviewFormDiv = styled.div`
   disapy: flex;
   flex-direction: row;
-  margin: 50px;
+  margin: 20px;
   color: white;
 `;
 
