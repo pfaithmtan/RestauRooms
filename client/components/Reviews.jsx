@@ -6,8 +6,9 @@ import {
   ReviewsTitle,
 } from '../styling/style.jsx';
 import ReviewEntry from './ReviewEntry';
+import ReviewForm from './ReviewForm';
 
-const Reviews = ({ reviews, restaurantName, initialRestaurants }) => {
+const Reviews = ({ reviews, restaurantName, initialRestaurants, restaurantPlaceId }) => {
   let title = <ReviewsTitle>
     Search reviews from restaurants like...
     <div
@@ -48,10 +49,12 @@ const Reviews = ({ reviews, restaurantName, initialRestaurants }) => {
   if (reviews.length) {
     title = <ReviewsTitle>
       {`Reviews for ${restaurantName}`}
+      <ReviewForm restaurantPlaceId={restaurantPlaceId} />
     </ReviewsTitle>;
   } else if (restaurantName && !reviews.length) {
     title = <ReviewsTitle>
       {`Be the first to write a review for ${restaurantName}`}
+      <ReviewForm restaurantPlaceId={restaurantPlaceId} />
     </ReviewsTitle>;
   }
 
