@@ -72,7 +72,7 @@ export const ReviewsTitle = styled.div`
 export const ReviewsDiv = styled.div`
   background: white;
   margin: 20px 0 0 0;
-  width: 100%
+  width: 672px;
 `;
 
 export const ReviewFormDiv = styled.div`
