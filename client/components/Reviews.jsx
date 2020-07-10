@@ -3,23 +3,61 @@ import React from 'react';
 import {
   ReviewsComponent,
   ReviewsDiv,
+  ReviewsTitle,
 } from '../styling/style.jsx';
 import ReviewEntry from './ReviewEntry';
 
-const Reviews = ({ reviews, restaurantName }) => {
-  let title = 'Reviews will appear here'
+const Reviews = ({ reviews, restaurantName, initialRestaurants }) => {
+  let title = <ReviewsTitle>
+    Search reviews from restaurants like...
+    <div
+      style={{
+        display: 'flex',
+        flexWrap: 'wrap',
+        justifyContent: 'space-around',
+        backgroundImage: 'linear-gradient(to bottom right, grey, black, grey)',
+        margin: '20px 5px 20px 5px',
+      }}
+    >
+      {
+        initialRestaurants.map((name, i) => {
+          const colours = ['#FFEBA1', '#0CBDFF', '#FF9E67'];
+          return (<div
+            style={{
+              color: (i % 3 === 0 ? colours[0] : (i % 2 === 0 ? colours[1] : colours[2])),
+              fontSize: '45px',
+              fontStyle: 'oblique',
+              fontFamily: 'Arial, sans-serif',
+            }}
+          >
+            {name}
+          </div>)}
+        )
+      }
+    </div>
+    ...and many more!
+    <div
+      style={{
+        marginTop: '50px',
+      }}
+    >
+      Or write your own review!
+    </div>
+  </ReviewsTitle>;
 
   if (reviews.length) {
-    title = `Reviews for ${restaurantName}`
+    title = <ReviewsTitle>
+      {`Reviews for ${restaurantName}`}
+    </ReviewsTitle>;
   } else if (restaurantName && !reviews.length) {
-    title = `Be the first to write a review for ${restaurantName}`
+    title = <ReviewsTitle>
+      {`Be the first to write a review for ${restaurantName}`}
+    </ReviewsTitle>;
   }
 
   return (
     <ReviewsComponent>
-      <div style={{ color: '#163f34', fontWeight: 'bold', fontSize: '30px', textAlign: 'center' }}>
-        {title}
-      </div>
+      {title}
       <ReviewsDiv>
         {
           reviews.map((review) => {
