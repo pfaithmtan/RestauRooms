@@ -62,6 +62,13 @@ export const ReviewsComponent = styled.div`
   flex-direction: column;
 `;
 
+export const ReviewsTitle = styled.div`
+  color: #163f34;
+  font-weight: bold;
+  font-size: 30px;
+  text-align: center;
+`;
+
 export const ReviewsDiv = styled.div`
   background: white;
   margin: 20px 0 0 0;
