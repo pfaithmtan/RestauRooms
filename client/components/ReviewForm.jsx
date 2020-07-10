@@ -13,7 +13,6 @@ const ReviewForm = ({ restaurantPlaceId }) => {
   const [rating, setRating] = useState(1);
 
   const handleChange = (event) => {
-    console.log(event.target.value);
     setReview(event.target.value)
   }
 
@@ -30,9 +29,8 @@ const ReviewForm = ({ restaurantPlaceId }) => {
     })
       .then((response) => {
         console.log(response);
-        console.log('insidie then', review)
         setReview('');
-        console.log('then after:', review)
+        setRating(1);
       })
       .catch((error) => {
         console.log(error);
@@ -43,7 +41,13 @@ const ReviewForm = ({ restaurantPlaceId }) => {
     <ReviewFormDiv>
       <form onSubmit={(event) => handleSubmit(event)} >
         <label for="submit-review" style={{ fontSize: 20 }}>Submit a review</label><br/>
-        <ReviewTextBox type="text" id="review" onChange={handleChange} />
+        <ReviewTextBox
+          type="text"
+          id="review"
+          placeholder="Whether extraodinarily immacurate or absolutely filthy... Please, pray tell."
+          value={review}
+          onChange={handleChange}
+        />
         <ReviewButtons>
           Give an overall rating:
           <img
