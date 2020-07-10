@@ -70,7 +70,11 @@ const App = () => {
           <Search updateQuery={updateQuery} />
         </SearchSide>
         <ReviewsSide>
-          <Reviews reviews={currentReviews} restaurantName={restaurantName} />
+          <Reviews
+            reviews={currentReviews}
+            restaurantName={restaurantName}
+            initialRestaurants={initialRestaurants}
+          />
           {
             reviews.length === 0 
             ? <div /> : <Pagination 
