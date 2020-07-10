@@ -74,6 +74,35 @@ export const ReviewsDiv = styled.div`
   margin: 20px 0 0 0;
 `;
 
+export const ReviewFormDiv = styled.div`
+  disapy: flex;
+  flex-direction: row;
+  margin: 50px;
+  color: white;
+`;
+
+export const ReviewTextBox = styled.textarea`
+  resize: none;
+  height: 100px;
+  width: 500px;
+  font-family: Roboto;
+  font-size: 14px;
+`;
+
+export const ReviewButtons = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  color: black;
+`;
+
+export const ReviewSubmit = styled.input`
+  margin-left: 10px;
+  background-color: #FFEBA1;
+  color: black;
+`;
+
 export const Review = styled.div`
   background: #def2ed;
   padding: 5px;
