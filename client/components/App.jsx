@@ -15,6 +15,7 @@ import Pagination from './Pagination';
 const App = () => {
   const [reviews, setReviews] = useState([]);
   const [restaurantName, setRestaurantName] = useState('');
+  const [restaurantPlaceId, setRestaurantPlaceId] = useState('');
   const [initialRestaurants, setInitialRestaurants] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [reviewsPerPage] = useState(10);
@@ -24,6 +25,7 @@ const App = () => {
       .then((data) => {
         setReviews(data.data[0].toiletReviews);
         setRestaurantName(data.data[0].name);
+        setRestaurantPlaceId(placeId);
       })
       .catch((error) => {
         console.log(error);
@@ -74,6 +76,7 @@ const App = () => {
             reviews={currentReviews}
             restaurantName={restaurantName}
             initialRestaurants={initialRestaurants}
+            restaurantPlaceId={restaurantPlaceId}
           />
           {
             reviews.length === 0 
