@@ -34,6 +34,7 @@ const App = () => {
 
   const updateQuery = (query) => {
     getReviews(query);
+    setCurrentPage(1);
   }
 
   const getInitialRestaurants = () => {
