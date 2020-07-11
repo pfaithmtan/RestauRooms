@@ -23,7 +23,7 @@ const App = () => {
   const getReviews = (placeId) => {
     axios.get(`/api/restaurant/${placeId}`)
       .then((data) => {
-        setReviews(data.data[0].toiletReviews);
+        setReviews(data.data[0].toiletReviews.reverse());
         setRestaurantName(data.data[0].name);
         setRestaurantPlaceId(placeId);
       })
