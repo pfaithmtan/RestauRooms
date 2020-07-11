@@ -49,6 +49,7 @@ const ReviewForm = ({ restaurantPlaceId, getReviews }) => {
           placeholder="Whether extraodinarily immacurate or absolutely filthy... Please, pray tell."
           value={review}
           onChange={handleChange}
+          required={true}
         />
         <ReviewButtons>
           Give an overall rating:
