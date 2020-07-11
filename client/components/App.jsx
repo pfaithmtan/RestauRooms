@@ -78,6 +78,7 @@ const App = () => {
             restaurantName={restaurantName}
             initialRestaurants={initialRestaurants}
             restaurantPlaceId={restaurantPlaceId}
+            getReviews={getReviews}
           />
           {
             reviews.length === 0 

@@ -8,7 +8,7 @@ import {
   ReviewSubmit,
 } from '../styling/style';
 
-const ReviewForm = ({ restaurantPlaceId }) => {
+const ReviewForm = ({ restaurantPlaceId, getReviews }) => {
   const [review, setReview] = useState('');
   const [rating, setRating] = useState(1);
 
@@ -35,6 +35,8 @@ const ReviewForm = ({ restaurantPlaceId }) => {
       .catch((error) => {
         console.log(error);
       });
+
+      getReviews(restaurantPlaceId);
   }
 
   return (

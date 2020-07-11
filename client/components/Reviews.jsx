@@ -8,7 +8,7 @@ import {
 import ReviewEntry from './ReviewEntry';
 import ReviewForm from './ReviewForm';
 
-const Reviews = ({ reviews, restaurantName, initialRestaurants, restaurantPlaceId }) => {
+const Reviews = ({ reviews, restaurantName, initialRestaurants, restaurantPlaceId, getReviews }) => {
   let title = <ReviewsTitle>
     Search reviews from restaurants like...
     <div
@@ -49,12 +49,18 @@ const Reviews = ({ reviews, restaurantName, initialRestaurants, restaurantPlaceI
   if (reviews.length) {
     title = <ReviewsTitle>
       {`Reviews for ${restaurantName}`}
-      <ReviewForm restaurantPlaceId={restaurantPlaceId} />
+      <ReviewForm
+        restaurantPlaceId={restaurantPlaceId}
+        getReviews={getReviews}
+      />
     </ReviewsTitle>;
   } else if (restaurantName && !reviews.length) {
     title = <ReviewsTitle>
       {`Be the first to write a review for ${restaurantName}`}
-      <ReviewForm restaurantPlaceId={restaurantPlaceId} />
+      <ReviewForm
+        restaurantPlaceId={restaurantPlaceId}
+        getReviews={getReviews}
+      />
     </ReviewsTitle>;
   }
 
@@ -65,7 +71,10 @@ const Reviews = ({ reviews, restaurantName, initialRestaurants, restaurantPlaceI
         {
           reviews.map((review) => {
             return (
-              <ReviewEntry review={review.review} reviewRating={review.rating} />
+              <ReviewEntry
+                review={review.review}
+                reviewRating={review.rating}
+              />
             )
           })
         }
