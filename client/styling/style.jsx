@@ -102,6 +102,8 @@ export const ReviewSubmit = styled.input`
   margin-left: 10px;
   background-color: #FFEBA1;
   color: black;
+  outline: none;
+  cursor: pointer;
 `;
 
 export const Review = styled.div`
