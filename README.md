@@ -107,3 +107,4 @@ Posting of review
 ## Future Implementations
 
 * Authentication system for user sign in and log out
+* Search feature for user reviews
