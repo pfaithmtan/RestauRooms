@@ -2,6 +2,7 @@ const axios = require('axios');
 const faker = require('faker');
 const config = require('../../config.js');
 const db = require('../../db/index.js');
+const { random } = require('faker');
 
 const get20RestaurantsInSF = (req, res) => {
   axios.get('https://maps.googleapis.com/maps/api/place/textsearch/json', {
@@ -46,14 +47,24 @@ const create100ReviewsForOneRestaurant = (req, res) => {
       rating: Math.floor(Math.random() * (6 - 1) + 1),
       review: faker.lorem.sentences(),
     }
-    
-    db.Restaurant.findOneAndUpdate({ place_id: 'ChIJ6Z5t1n6AhYARaY_WxdP44r0' }, { $push: { toiletReviews: review } })
+
+    db.Restaurant.find().limit(1)
       .then((data) => {
-        res.status(200).send(`FOUND ${place_id} and pushed a new review!`);
+        const randomRestaurantPlaceId = data[0].place_id;
+
+        db.Restaurant.findOneAndUpdate({ place_id: randomRestaurantPlaceId }, { $push: { toiletReviews: review } })
+          .then((data) => {
+            res.status(200).send(`FOUND ${place_id} and pushed a new review!`);
+          })
+          .catch((err) => {
+            res.status(500).send(err);
+          });
+
+        res.status(200).send(randomRestaurantPlaceId);
       })
       .catch((err) => {
         res.status(500).send(err);
-      });
+      })
   }
 }
 
