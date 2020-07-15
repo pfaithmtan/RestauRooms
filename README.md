@@ -78,7 +78,7 @@ Initial load
 
 Search bar with autocomplete
 
-<img width="650" alt="Screen Shot 2020-07-14 at 5 06 22 PM" src="https://user-images.githubusercontent.com/41028186/87491220-69761c00-c5fc-11ea-9138-630f0f5f430e.png">
+<img width="400" alt="Screen Shot 2020-07-14 at 5 06 22 PM" src="https://user-images.githubusercontent.com/41028186/87491220-69761c00-c5fc-11ea-9138-630f0f5f430e.png">
 
 Google Maps update
 
@@ -86,7 +86,7 @@ Google Maps update
 
 Pagination
 
-<img width="650" alt="Screen Shot 2020-07-14 at 5 08 26 PM" src="https://user-images.githubusercontent.com/41028186/87491131-29af3480-c5fc-11ea-8cc8-b16d07c1e576.png">
+<img width="400" alt="Screen Shot 2020-07-14 at 5 08 26 PM" src="https://user-images.githubusercontent.com/41028186/87491131-29af3480-c5fc-11ea-8cc8-b16d07c1e576.png">
 
 Reviews with read more functionality
 
