@@ -28,15 +28,13 @@ const ReviewForm = ({ restaurantPlaceId, getReviews }) => {
       review,
     })
       .then((response) => {
-        console.log(response);
         setReview('');
         setRating(1);
+        getReviews(restaurantPlaceId);
       })
       .catch((error) => {
         console.log(error);
       });
-
-      getReviews(restaurantPlaceId);
   }
 
   return (
